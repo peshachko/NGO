@@ -1,0 +1,45 @@
+name: Build PDF and Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches:
+      - '*latex*'
+      - 'statute'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+
+      - name: Set up LaTeX environment
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: docs
+          root_file: |
+            устав.tex
+
+      - name: Generate the PDF
+        run: |
+          mkdir -p dist
+          mv docs/*.pdf dist/
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+
+      - name: Push PDF to Cloudflare Pages
+        run: |
+          BRANCH_NAME="serve-pdfs-${GITHUB_REF_NAME}"
+          git remote set-url origin https://github.com/${{ github.repository }}.git
+          git checkout --orphan ${BRANCH_NAME}
+          git reset --hard
+          git add dist/
+          git commit -m "Deploy generated PDF"
+          git push -f origin ${BRANCH_NAME}
