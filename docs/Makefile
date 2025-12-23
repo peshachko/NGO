@@ -26,4 +26,9 @@ $(OPEN_TARGETS): open-%: %.pdf
 	@xdg-open $< &
 
 clean: ## Clean all PDF files
-	@rm -f *.pdf *.log *.aux
+	@rm -f *.pdf *.log *.aux *.out
+
+## Generate QR code in png
+qr-code-png: qr-code.pdf
+	@pdftocairo -png -r 600 $< qr-code
+	@mv qr-code-1.png qr-code.png
