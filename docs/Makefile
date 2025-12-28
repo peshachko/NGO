@@ -20,10 +20,11 @@ all: $(addsuffix .pdf, $(NOTES))
 
 %.pdf: %.tex Makefile
 	@$(LATEX_PROCESSOR) "$(LATEX_FLAGS)\input{$<}"
+	@$(LATEX_PROCESSOR) "$(LATEX_FLAGS)\input{$<}"
 
 ## Documents:
 $(OPEN_TARGETS): open-%: %.pdf
 	@xdg-open $< &
 
 clean: ## Clean all PDF files
-	@rm -f *.pdf *.log *.aux
+	@rm -f *.pdf *.log *.aux *.toc
