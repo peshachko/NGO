@@ -27,4 +27,4 @@ $(OPEN_TARGETS): open-%: %.pdf
 	@xdg-open $< &
 
 clean: ## Clean all PDF files
-	@rm -f *.pdf *.log *.aux *.toc
+	@rm -f *.pdf *.log *.aux *.toc *.out

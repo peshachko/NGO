@@ -18,6 +18,9 @@
 \fancyhead[R]{\thepage}
 \setlength{\headheight}{15pt}% to suppress fancyhdr warnings
 
+\newlength{\itemvspace}
+\setlength{\itemvspace}{0.4cm}
+
 \renewcommand{\labelenumi}{(\arabic{enumi})}
 
 \newcounter{article}
@@ -489,12 +492,12 @@
 {
 \renewcommand{\labelenumi}{\arabic{enumi}.}
 \begin{enumerate}
-\item \makebox[10cm]{\dotfill}, ЕГН: \makebox[4.8cm]{\dotfill} \\[0.5cm]
-\item \makebox[10cm]{\dotfill}, ЕГН: \makebox[4.8cm]{\dotfill} \\[0.5cm]
-\item \makebox[10cm]{\dotfill}, ЕГН: \makebox[4.8cm]{\dotfill} \\[0.5cm]
-\item \makebox[10cm]{\dotfill}, ЕГН: \makebox[4.8cm]{\dotfill} \\[0.5cm]
-\item \makebox[10cm]{\dotfill}, ЕГН: \makebox[4.8cm]{\dotfill} \\[0.5cm]
-\item \makebox[10cm]{\dotfill}, ЕГН: \makebox[4.8cm]{\dotfill} \\[0.5cm]
+\item \makebox[10cm]{\dotfill}, ЕГН: \makebox[4.8cm]{\dotfill} \\[\itemvspace]
+\item \makebox[10cm]{\dotfill}, ЕГН: \makebox[4.8cm]{\dotfill} \\[\itemvspace]
+\item \makebox[10cm]{\dotfill}, ЕГН: \makebox[4.8cm]{\dotfill} \\[\itemvspace]
+\item \makebox[10cm]{\dotfill}, ЕГН: \makebox[4.8cm]{\dotfill} \\[\itemvspace]
+\item \makebox[10cm]{\dotfill}, ЕГН: \makebox[4.8cm]{\dotfill} \\[\itemvspace]
+\item \makebox[10cm]{\dotfill}, ЕГН: \makebox[4.8cm]{\dotfill} \\[\itemvspace]
 \item \makebox[10cm]{\dotfill}, ЕГН: \makebox[4.8cm]{\dotfill}
 \end{enumerate}
 }
