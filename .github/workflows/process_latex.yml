@@ -23,6 +23,7 @@ jobs:
           working_directory: docs
           root_file: |
             устав.tex
+            учредителен-протокол.tex
 
       - name: Generate the PDF
         run: |
