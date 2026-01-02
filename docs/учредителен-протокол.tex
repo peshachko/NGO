@@ -12,6 +12,7 @@
 \usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
 \usepackage[colorlinks=true, linkcolor=blue]{hyperref}
 \usepackage[normalem]{ulem}
+\usepackage{pgffor}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -35,7 +36,7 @@
 обществена полза „ПЕШАЧКО”. \\[0.2cm]
 
 \noindent На събранието присъстваха учредителите, посочени в
-Раздел~„\nameref{sec:founders}”. Събранието се проведе при следния дневен ред:
+Раздел~\nameref{sec:founders}. Събранието се проведе при следния дневен ред:
 
 \begin{enumerate}
 \item Избор на председател, протоколчик и преброител на учредителното събрание.
@@ -66,18 +67,17 @@
   \item Преброител: \dotfill
   \end{itemize}
 \item Учредителното събрание да бъде проведено съгласно предложения дневен ред.
-\item Учредява сдружение с нестопанска цел в обществена полза с наименование „ПЕШАЧКО”
-  изписвано накратко НПО „ПЕШАЧКО”, което може да бъде изписвано на латиница като
-  „PESHACHKO”, със седалище гр. София, \\[0.1cm]
+\item Учредява сдружение с нестопанска цел с наименование „ПЕШАЧКО” изписвано накратко
+  НПО „ПЕШАЧКО”, което може да бъде изписвано на латиница като „PESHACHKO”, със седалище
+  гр. София, \\[0.1cm]
 
   \dotfill
 
-  като юридическо лице, сдружение с нестопанска цел, което ще осъществява
-  общественополезна дейност съгласно разпоредбите на Закона за юридическите лица с
-  нестопанска цел.
+  като юридическо лице, което ще осъществява общественополезна дейност съгласно
+  разпоредбите на Закона за юридическите лица с нестопанска цел.
 \item Приема Устава на Сдружението.
 \item Избира за членове на Управителния съвет и председател за срок от 3 години, както
-  е описано в Раздел~„\nameref{sec:management-board}”.
+  е описано в Раздел~\nameref{sec:management-board}.
 \item Определя членски внос в размер на €25 за физически лица и половин минимална
   работна заплата за юридически лица, а в годината на учредяване - 1/3 от дължимия
   годишен членски внос.
@@ -114,27 +114,11 @@
 \vspace{0.7cm}
 
 \begin{enumerate}
-\item \makebox[10cm]{\dotfill}, ЕГН: \dotfill \\[\itemvspace]
-  л.к. № \makebox[5cm]{\dotfill}, изд. на \makebox[4cm]{\dotfill} МВР \dotfill \\[\itemvspace]
-  живущ в: \dotfill \\[\itemvspace]
-\item \makebox[10cm]{\dotfill}, ЕГН: \dotfill \\[\itemvspace]
-  л.к. № \makebox[5cm]{\dotfill}, изд. на \makebox[4cm]{\dotfill} МВР \dotfill \\[\itemvspace]
-  живущ в: \dotfill \\[\itemvspace]
-\item \makebox[10cm]{\dotfill}, ЕГН: \dotfill \\[\itemvspace]
-  л.к. № \makebox[5cm]{\dotfill}, изд. на \makebox[4cm]{\dotfill} МВР \dotfill \\[\itemvspace]
-  живущ в: \dotfill \\[\itemvspace]
-\item \makebox[10cm]{\dotfill}, ЕГН: \dotfill \\[\itemvspace]
-  л.к. № \makebox[5cm]{\dotfill}, изд. на \makebox[4cm]{\dotfill} МВР \dotfill \\[\itemvspace]
-  живущ в: \dotfill \\[\itemvspace]
-\item \makebox[10cm]{\dotfill}, ЕГН: \dotfill \\[\itemvspace]
-  л.к. № \makebox[5cm]{\dotfill}, изд. на \makebox[4cm]{\dotfill} МВР \dotfill \\[\itemvspace]
-  живущ в: \dotfill \\[\itemvspace]
-\item \makebox[10cm]{\dotfill}, ЕГН: \dotfill \\[\itemvspace]
-  л.к. № \makebox[5cm]{\dotfill}, изд. на \makebox[4cm]{\dotfill} МВР \dotfill \\[\itemvspace]
-  живущ в: \dotfill \\[\itemvspace]
-\item \makebox[10cm]{\dotfill}, ЕГН: \dotfill \\[\itemvspace]
-  л.к. № \makebox[5cm]{\dotfill}, изд. на \makebox[4cm]{\dotfill} МВР \dotfill \\[\itemvspace]
-  живущ в: \dotfill \\[\itemvspace]
+  \foreach \i in {1,...,11}{
+  \item \makebox[10cm]{\dotfill}, ЕГН: \dotfill \\[\itemvspace]
+    л.к. № \makebox[5cm]{\dotfill}, изд. на \makebox[4cm]{\dotfill} МВР \dotfill \\[\itemvspace]
+    живущ в: \dotfill \\[\itemvspace]
+  }
 \end{enumerate}
 
 \end{document}

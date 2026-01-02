@@ -11,15 +11,13 @@
 \fi
 \usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
 \usepackage[colorlinks=true, linkcolor=blue]{hyperref}
+\usepackage{pgffor}
 
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[C]{СДРУЖЕНИЕ С НЕСТОПАНСКА ЦЕЛ „ПЕШАЧКО”}
 \fancyhead[R]{\thepage}
 \setlength{\headheight}{15pt}% to suppress fancyhdr warnings
-
-\newlength{\itemvspace}
-\setlength{\itemvspace}{0.4cm}
 
 \renewcommand{\labelenumi}{(\arabic{enumi})}
 
@@ -76,7 +74,9 @@
 
 \heading{Седалище и адрес}
 \article{Седалището на СДРУЖЕНИЕТО е в Република България, гр. София, а адресът на
-  управление -- гр. София, ул. „\makebox[10cm]{\dotfill}” № \makebox[0.7cm]{\dotfill}.}
+  управление -- гр. София \\[0.4cm]
+
+  \dotfill}
 
 \heading{Цели}
 \article{Основни цели на СДРУЖЕНИЕТО са:}
@@ -478,27 +478,24 @@
 \section{Заключителни разпоредби}
 \begin{itemize}
 \item Този устав е приет на учредително събрание за създаване на сдружение с нестопанска
-  цел „ПЕШАЧКО”, проведено на \makebox[5cm]{\dotfill}. г. в гр. София, \\ул.
-  „\makebox[9cm]{\dotfill}” № \makebox[0.7cm]{\dotfill}.
-\item Списъкът на членовете на СДРУЖЕНИЕТО, подписали устава да се счита за неразделна
-  част от този Устав.
+  цел „ПЕШАЧКО”, проведено в гр. София, \\[0.3cm]
+
+  \makebox[12cm]{\dotfill} на \dotfill
+\item Списъкът на членовете на СДРУЖЕНИЕТО, подписали устава се намира в
+  Раздел~\nameref{sec:members} и се счита за неразделна част от този Устав.
 \end{itemize}
 
-\vspace{1cm}
+\newpage
 
-\section{СПИСЪК НА ЧЛЕНОВЕТЕ НА НПО „ПЕШАЧКО”}
+\section{СПИСЪК НА ЧЛЕНОВЕТЕ НА НПО „ПЕШАЧКО”}\label{sec:members}
 
 \vspace{1cm}
 {
 \renewcommand{\labelenumi}{\arabic{enumi}.}
 \begin{enumerate}
-\item \makebox[10cm]{\dotfill}, ЕГН: \makebox[4.8cm]{\dotfill} \\[\itemvspace]
-\item \makebox[10cm]{\dotfill}, ЕГН: \makebox[4.8cm]{\dotfill} \\[\itemvspace]
-\item \makebox[10cm]{\dotfill}, ЕГН: \makebox[4.8cm]{\dotfill} \\[\itemvspace]
-\item \makebox[10cm]{\dotfill}, ЕГН: \makebox[4.8cm]{\dotfill} \\[\itemvspace]
-\item \makebox[10cm]{\dotfill}, ЕГН: \makebox[4.8cm]{\dotfill} \\[\itemvspace]
-\item \makebox[10cm]{\dotfill}, ЕГН: \makebox[4.8cm]{\dotfill} \\[\itemvspace]
-\item \makebox[10cm]{\dotfill}, ЕГН: \makebox[4.8cm]{\dotfill}
+  \foreach \i in {1,...,11}{
+  \item \makebox[10cm]{\dotfill}, ЕГН: \makebox[4.8cm]{\dotfill} \\[0.4cm]
+  }
 \end{enumerate}
 }
 
