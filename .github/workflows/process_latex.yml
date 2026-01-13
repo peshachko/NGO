@@ -3,21 +3,18 @@ name: Build PDF and Deploy to Cloudflare Pages
 on:
   push:
     branches:
-      - '*latex*'
+      - '*tex*'
       - 'statute'
-
-permissions:
-  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
-      - name: Checkout the code
-        uses: actions/checkout@v4
-
-      - name: Set up LaTeX environment
+      - uses: actions/checkout@v4
+      - name: Compile latex documents
         uses: xu-cheng/latex-action@v3
         with:
           working_directory: docs
@@ -25,22 +22,38 @@ jobs:
             устав.tex
             учредителен-протокол.tex
 
-      - name: Generate the PDF
+      - name: Prepare dist folder with PDFs
         run: |
-          mkdir -p dist
-          mv docs/*.pdf dist/
+          mkdir -p wrapper_dist/dist
+          mv docs/*.pdf wrapper_dist/dist/
 
-      - name: Configure Git
-        run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
+      - name: Upload generated PDFs as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-pdfs
+          path: wrapper_dist/
+          retention-days: 1
 
-      - name: Push PDF to Cloudflare Pages
-        run: |
-          BRANCH_NAME="serve-pdfs-${GITHUB_REF_NAME}"
-          git remote set-url origin https://github.com/${{ github.repository }}.git
-          git checkout --orphan ${BRANCH_NAME}
-          git reset --hard
-          git add dist/
-          git commit -m "Deploy generated PDF"
-          git push -f origin ${BRANCH_NAME}
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: generated-pdfs
+          path: wrapper_dist/
+
+      - name: Deploy for Cloudflare
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./wrapper_dist
+          publish_branch: serve-pdfs-${{ github.ref_name }}
+          force_orphan: true
+          commit_message: |
+            Deploy generated PDFs from ${{ github.ref_name }}
+            ${{ github.event.head_commit.message }}
