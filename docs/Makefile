@@ -1,30 +1,10 @@
-LATEX_PROCESSOR := pdflatex
+include ../make/Makefile.inc
+include ../make/Makefile_tex.inc
 
-LATEX_FLAGS :=
 # LATEX_FLAGS := \def\showmargins{}
 
-NOTES := $(basename $(wildcard *.tex))
+## Генериране на устав и учредителен протокол
+statutes: build/устав.pdf build/учредителен-протокол.pdf
 
-OPEN_TARGETS = $(addprefix open-, $(NOTES))
-
-help: URL := github.com/drdv/makefile-doc/releases/latest/download/makefile-doc.awk
-help: DIR := $(HOME)/.local/share/makefile-doc
-help: SCR := $(DIR)/makefile-doc.awk
-help: VFLAG := -v SUB='$$(OPEN_TARGETS):open-:$(NOTES)'
-help: ## Show this help
-	@test -f $(SCR) || wget -q -P $(DIR) $(URL)
-	@awk $(VFLAG) -f $(SCR) $(MAKEFILE_LIST)
-
-## Generate all notes
-all: $(addsuffix .pdf, $(NOTES))
-
-%.pdf: %.tex Makefile
-	@$(LATEX_PROCESSOR) "$(LATEX_FLAGS)\input{$<}"
-	@$(LATEX_PROCESSOR) "$(LATEX_FLAGS)\input{$<}"
-
-## Documents:
-$(OPEN_TARGETS): open-%: %.pdf
-	@xdg-open $< &
-
-clean: ## Clean all PDF files
-	@rm -f *.pdf *.log *.aux *.toc *.out
+clean: ## Clean build directory
+	@rm -rf $(BUILD_DIR)
