@@ -1,0 +1,46 @@
+\documentclass[tikz]{standalone}
+\usepackage[english, bulgarian]{babel}
+
+\usepackage{amssymb,amsmath,xcolor}
+\usepackage{qrcode}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue]{hyperref}
+\usepackage{enumitem}
+\usepackage{datetime}
+\newdateformat{numdate}{\twodigit{\THEDAY}-\twodigit{\THEMONTH}-\THEYEAR}
+
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\providecommand{\apt}{1}
+\providecommand{\balance}{100 лв}
+\providecommand{\repair}{60 лв}
+\providecommand{\charges}{10 лв}
+
+\begin{document}
+
+\begin{tikzpicture}
+  \def\cardwidth{9cm}
+  \def\cardheight{5cm}
+
+  \draw[gray] (0,0) rectangle (\cardwidth,-\cardheight);
+
+  \node[anchor=west] at (0,-0.4) {\fontsize{16}{18}\selectfont \textbf{НПО Пешачко}};
+
+  %% \node[anchor=east] at (8.6cm,-1.2)
+       %% {\includegraphics[width=1.3cm]{img/peshachko.png}};
+
+  \def\qrcodeheight{2cm}
+  \def\xoffset{-0.05cm}
+  \def\yoffset{-0.45cm}
+  \node[anchor=south east] (qr) at (\cardwidth+\xoffset,-\cardheight-\yoffset) {
+    \qrcode[height=\qrcodeheight]{https://peshachko.bg}
+  };
+
+  % Draw a horizontal line from left border to middle
+  \draw[gray, dashed] (0,-\cardheight+0.65cm) -- (\cardwidth/1.45,-\cardheight+0.65cm);
+
+  \node[anchor=north east] at (\cardwidth-0.15cm,-\cardheight+0.6cm) {\footnotesize \href{https://peshachko.bg}{peshachko.bg}};
+  \node[anchor=north west] at (0,-\cardheight+0.58cm) {\footnotesize Всяка стъпка има значение ...};
+
+\end{tikzpicture}
+\end{document}
