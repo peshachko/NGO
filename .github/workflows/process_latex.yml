@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - '*tex*'
-      - 'statute'
 
 jobs:
   build:
@@ -19,8 +18,9 @@ jobs:
         with:
           working_directory: docs
           root_file: |
-            устав.tex
-            учредителен-протокол.tex
+            creation/устав.tex
+            creation/учредителен-протокол.tex
+            заявление_членство.tex
 
       - name: Prepare dist folder with PDFs
         run: |
