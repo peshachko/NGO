@@ -15,31 +15,37 @@
 
 \vspace{1cm}
 
-\noindent
-Долуподписаният/ата:
-
-\vspace{1cm}
+\begin{Form}
 
 \noindent
-\textbf{Три имена:} \hrulefill
+\TextField[name=name,width=14cm]{От (три имена):}
 
 \vspace{0.8cm}
 
 \noindent
-\textbf{Имейл адрес:} \hrulefill
+\TextField[name=email,width=13.5cm]{Имейл адрес:}
 
 \vspace{1.5cm}
 
 \noindent
-С настоящото заявявам желанието си да стана член на Сдружение с Нестопанска Цел Пешачко.
+Заявявам желанието си да стана член на Сдружение с Нестопанска Цел Пешачко.
 
 \vspace{0.5cm}
 
 \noindent
 Декларирам, че съм запознат/а с
-\textbf{\href{http://localhost:8000/documents/устав.pdf}{Устава на сдружението}} (към
-датата на подписването на това заявление) и приемам неговите разпоредби, като се
-задължавам да ги спазвам.
+\textbf{\href{https://peshachko.bg/documents/устав.pdf}{Устава на сдружението}} (към
+датата на попълването на това заявление) и приемам неговите разпоредби, като се
+задължавам да ги спазвам. Разбирам, че трябва да заплатя годишния членски внос (€25) по
+банков път \footnote{Настоящото заявление не съдържа подпис. Автентичността му се
+установява чрез съвкупността от три елемента: (1) това заявление изпратено на
+\href{mailto:contact@peshachko.bg}{contact@peshachko.bg}, (2) отговор от страна на
+заявителя на имейл, изпратен от сдружението на посочения адрес, съдържащ решението на
+управителния орган, и (3) извършен банков превод с основание ``Членски внос —
+\textit{имейл адрес}''. Комбинацията от тези три елемента потвърждава самоличността на
+заявителя и волята му да членува в сдружението.} в срок от 30 дни от датата на одобрение
+на това заявление (което трябва да изпратя на
+\href{mailto:contact@peshachko.bg}{contact@peshachko.bg}).
 
 \vspace{0.5cm}
 
@@ -48,35 +54,44 @@
 други лични данни да бъдат обработвани за целите на членството, съгласно действащото
 законодателство.
 
-\vspace{2cm}
+\vspace{1cm}
 
 \noindent
-Дата: \hrulefill
+\TextField[name=date,width=5cm]{Дата:}
 
-\vspace{1.5cm}
+\vspace{1cm}
 
 \noindent
-Подпис: \hrulefill
+\textbf{Банкова сметка за членски внос}: \\
+Титуляр: СДРУЖЕНИЕ С НЕСТОПАНСКА ЦЕЛ ПЕШАЧКО \\
+IBAN: BG25STSA93000032551385 \\
+BIC: STSABGSF \\
+Основание: Членски внос — \textit{имейл адрес}
 
-\vspace{2cm}
+\vspace{0.5cm}
+
+\noindent
+\hrulefill
 
 \begin{center}
     \textit{(Попълва се от управителния орган на Пешачко)}
 \end{center}
 
-\vspace{1cm}
+\vspace{0.5cm}
 
 \noindent
-Решение: \hrulefill
+\TextField[name=decision,width=14.5cm]{Решение:}
 
-\vspace{1cm}
-
-\noindent
-Дата: \hrulefill
-
-\vspace{1cm}
+\vspace{0.5cm}
 
 \noindent
-Подпис: \hrulefill
+\TextField[name=decision-date,width=5cm]{Дата:}
+
+\vspace{0.5cm}
+
+\noindent
+\TextField[name=representative,width=14.2cm]{Попълнил:}
+
+\end{Form}
 
 \end{document}
