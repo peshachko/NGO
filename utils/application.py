@@ -102,9 +102,10 @@ def fill_application(args):
 
     gender_variants = get_gender_variants(args.gender)
     welcome = gender_variants["welcome"]
+    today = datetime.today()
 
     widgets["decision"].field_value = f"{first_name}, {welcome} в Пешачко!"
-    widgets["decision-date"].field_value = datetime.today().strftime("%d/%m/%Y")
+    widgets["decision-date"].field_value = today.strftime("%d/%m/%Y")
     widgets["representative"].field_value = "Димитър @ Пешачко"
 
     # it is better to update all fields so that the fonts are the same
@@ -118,7 +119,7 @@ def fill_application(args):
     ]:
         widgets[name].update()
 
-    doc.save(f"build/{email}.pdf")
+    doc.save(f"build/{today.strftime("%Y%m%d")}_{email}.pdf")
 
     if args.email:
         with open("build/email.txt", "w") as h:
